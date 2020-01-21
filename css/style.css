@@ -24,7 +24,13 @@ body {
   font-weight: 700; }
 
 .page__table {
-  width: 100%; }
+  width: 100%;
+  display: flex;
+  justify-content: center; }
+
+.page__error-number {
+  opacity: 0;
+  transition: all 1s; }
 
 .form {
   display: flex;

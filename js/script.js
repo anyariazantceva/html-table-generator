@@ -1,24 +1,38 @@
 const form = document.querySelector('.form');
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    addStyles();
+    addStyledTable();
+    let container = document.querySelector('.page__table');
+    if(container.innerHTML !== '') {
+        container.innerHTML = '';
+        addStyledTable();
+        clearInputContent();
+    } else {
+        addStyledTable();
+        clearInputContent();
+    }
 
 });
 
-// common function to create a table
-function createTable () {
-    let tableObject = generateObject();
-    let table = document.createElement('table');
-    let tbody = document.createElement('tbody');
-    let thead = document.createElement('thead');
-    let firstRow = document.createElement('tr');
-    for(let i = 0; i < tableObject.columns; i++) {
-        let th = document.createElement('th');
-        th.textContent = 'value';
-        firstRow.append(th);
-    }
+// create a table head
 
-    thead.append(firstRow);
+function createTableHead () {
+    let tableObject = generateObject();
+    let parentElem = document.createElement('thead');
+    let row = document.createElement('tr');
+        for (let i = 0; i < tableObject.columns; i++) {
+            let childElem = document.createElement('th');
+            childElem.textContent = 'value';
+            row.append(childElem);
+        }
+    parentElem.append(row);
+    return parentElem
+}
+
+function createTableBody () {
+    let tableObject = generateObject();
+    let tbody = document.createElement('tbody');
+
     for(let i = 0; i<tableObject.rows - 1; i++) {
         let tr = document.createElement('tr');
         for(let i = 0; i < tableObject.columns; i++) {
@@ -28,14 +42,20 @@ function createTable () {
         }
 
         tbody.append(tr);
-
     }
+    return tbody
+}
+// common function to create a table
+function createTable () {
+    let table = document.createElement('table');
+    let thead = createTableHead();
+    let tbody = createTableBody();
     table.append(thead, tbody);
     return table
 }
 
 // adding all settings to created table
-function addStyles () {
+function addStyledTable () {
     let tableObject = generateObject();
     let container = document.querySelector('.page__table');
     let table = createTable();
@@ -44,7 +64,7 @@ function addStyles () {
     table.style.borderCollapse = `${tableObject.checked ? 'collapse' : 'separated'}`;
     table.firstChild.style.backgroundColor = `${tableObject.tableHead}`;
     table.lastChild.style.backgroundColor = `${tableObject.tableBody}`;
-
+    table.style.color = `${tableObject.tableFont}`;
     table.style.fontFamily = `${tableObject.fontFamily} sans-serif`;
     table.style.fontWeight = `${tableObject.fontWeight}`;
     table.style.fontSize = `${tableObject.fontSize}px`;
@@ -111,7 +131,17 @@ function getFontSettings (prop) {
     return num
 }
 
-// clearing a form
-function clearForm () {
+
+// clearing the previous content
+function clearInputContent () {
+    document.querySelector('#table-rows').value = '';
+    document.querySelector('#table-columns').value = '';
+    document.querySelector('#table-width').value = '';
+    document.querySelector('#table-border').value = '';
+    document.querySelector('#font-weight').value = '';
+    document.querySelector('#font-size').value = '';
 
 }
+
+// checking for the number
+

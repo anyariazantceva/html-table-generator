@@ -33,6 +33,8 @@ body {
   }
   &__table {
     width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
 }
