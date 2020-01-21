@@ -1,7 +1,6 @@
 const form = document.querySelector('.form');
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    addStyledTable();
     let container = document.querySelector('.page__table');
     if(container.innerHTML !== '') {
         container.innerHTML = '';
@@ -22,7 +21,7 @@ function createTableHead () {
     let row = document.createElement('tr');
         for (let i = 0; i < tableObject.columns; i++) {
             let childElem = document.createElement('th');
-            childElem.textContent = 'value';
+            childElem.textContent = 'head';
             row.append(childElem);
         }
     parentElem.append(row);
@@ -40,10 +39,14 @@ function createTableBody () {
             td.textContent = 'value';
             tr.append(td);
         }
-
         tbody.append(tr);
     }
+
+    for(let i = 1; i < tbody.childNodes.length; i+=2) {
+        tbody.childNodes[i].style.backgroundColor = `${tableObject.tableBg}`;
+    }
     return tbody
+
 }
 // common function to create a table
 function createTable () {
@@ -68,8 +71,10 @@ function addStyledTable () {
     table.style.fontFamily = `${tableObject.fontFamily} sans-serif`;
     table.style.fontWeight = `${tableObject.fontWeight}`;
     table.style.fontSize = `${tableObject.fontSize}px`;
+
     container.append(table);
 }
+
 
 function generateObject () {
     let table = {
@@ -142,6 +147,4 @@ function clearInputContent () {
     document.querySelector('#font-size').value = '';
 
 }
-
-// checking for the number
 
