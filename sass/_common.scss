@@ -1,0 +1,68 @@
+@import '_variables.scss';
+@import '_mixins.scss';
+
+*,*::before, *::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: $font-size;
+}
+
+body {
+  font-family: $font-family;
+  font-size: 1.4rem;
+}
+
+.container {
+  width: 98rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffdf38;
+}
+
+.page {
+  &__title {
+    font-size: 3.2rem;
+    font-weight: 700;
+  }
+  &__table {
+    width: 100%;
+  }
+
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  font-size: 1.2rem;
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  &__group {
+    margin-right: 1rem;
+    width: 20%;
+  }
+  &__label {
+    display: inline-block;
+  }
+  &__control {
+    display: block;
+    border: none;
+    background-color: #fff;
+    font-family: inherit;
+    outline: none;
+  }
+}
+
+table td {
+  text-align: center;
+}
