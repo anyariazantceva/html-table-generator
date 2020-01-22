@@ -148,3 +148,10 @@ function clearInputContent () {
 
 }
 
+
+let getBtn = document.querySelector('.get__btn');
+getBtn.addEventListener('click', () => {
+    let html = document.documentElement.outerHTML;
+    let htmlContainer = document.querySelector('.page__html');
+    htmlContainer.textContent = html;
+});

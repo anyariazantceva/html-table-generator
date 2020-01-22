@@ -1,0 +1,40 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  font-size: 1.2rem;
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  &__group {
+    margin-right: 1rem;
+    width: 20%;
+  }
+  &__label {
+    display: inline-block;
+    font-size: 1.1rem;
+  }
+  &__control {
+    display: block;
+    border: none;
+    background-color: #fff;
+    font-family: inherit;
+    outline: none;
+    padding: .3rem;
+  }
+  &__select {
+    display: block;
+    padding: .3rem;
+    border: none;
+    outline: none;
+  }
+  &__action {
+    &-item {
+      float: left;
+      margin-right: 6rem;
+    }
+  }
+
+}

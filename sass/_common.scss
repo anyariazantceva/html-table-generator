@@ -1,5 +1,6 @@
 @import '_variables.scss';
 @import '_mixins.scss';
+@import 'components/_form.scss';
 
 *,*::before, *::after {
   padding: 0;
@@ -39,32 +40,20 @@ body {
 
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
-  font-size: 1.2rem;
-  &__row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-  }
-  &__group {
-    margin-right: 1rem;
-    width: 20%;
-  }
-  &__label {
-    display: inline-block;
-  }
-  &__control {
-    display: block;
-    border: none;
-    background-color: #fff;
-    font-family: inherit;
-    outline: none;
-  }
+.btn {
+  display: inline-block;
+  padding: 1rem 3rem;
+  outline: none;
+  background-color: #4bd436;
+  border: none;
+  font-family: inherit;
+  color: #f7f7f7;
 }
 
 table td {
   text-align: center;
+}
+
+input[type*="color"] {
+  padding: 1px;
 }

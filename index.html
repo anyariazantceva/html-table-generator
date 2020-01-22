@@ -30,10 +30,7 @@
                     <label for="table-border" class="form__label">Border width in pixels</label>
                     <input id="table-border" class="form__control" type="text" required>
                 </div>
-                <div class="form__group">
-                    <label for="border-collapse" class="form__label">Border collapse</label>
-                    <input id="border-collapse" type="checkbox" class="form__control" checked required>
-                </div>
+
             </div>
             <div class="form__row">
                 <div class="form__group">
@@ -52,10 +49,7 @@
                     <label for="table-border-color" class="form__label">Border color</label>
                     <input id="table-border-color" type="color" class="form__control">
                 </div>
-                <div class="form__group">
-                    <label for="table-font" class="form__label">Font color</label>
-                    <input id="table-font" type="color" class="form__control">
-                </div>
+
             </div>
             <div class="form__row">
                 <div class="form__group">
@@ -76,12 +70,26 @@
                     <label for="font-size" class="form__label">Font size</label>
                     <input id="font-size" type="text" class="form__control" required>
                 </div>
+                <div class="form__group">
+                    <label for="table-font" class="form__label">Font color</label>
+                    <input id="table-font" type="color" class="form__control">
+                </div>
             </div>
             <div class="form__action">
-                <button class="btn form__btn">Generate</button>
+                <div class="form__gen form__action-item">
+                    <button class="btn form__btn">Generate</button>
+                </div>
+                <div class="form__group form__action-item">
+                    <label for="border-collapse" class="form__label">Border collapse</label>
+                    <input id="border-collapse" type="checkbox" class="form__control" checked required>
+                </div>
             </div>
         </form>
+        <div class="form__code form__action-item">
+            <button class="btn get__btn">Get Code</button>
+        </div>
         <div class="page__table"></div>
+        <div class="page__html"></div>
     </div>
     <script src="js/script.js"></script>
 </body>
