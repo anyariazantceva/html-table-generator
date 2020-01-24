@@ -18,8 +18,7 @@ body {
 }
 
 .container {
-  width: 98rem;
-  margin: 0 auto;
+  // margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,6 +35,13 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-top: 2rem;
+  }
+  &__html {
+    width: 70%;
+    padding: 1rem;
+    margin: 2rem 0;
+    text-align: justify;
   }
 
 }
@@ -48,6 +54,7 @@ body {
   border: none;
   font-family: inherit;
   color: #f7f7f7;
+  font-weight: bold;
 }
 
 table td {
@@ -55,5 +62,45 @@ table td {
 }
 
 input[type*="color"] {
-  padding: 1px;
+  padding: 0;
+  border: none;
+}
+
+.get__code-action {
+  padding: 0 1rem;
+}
+
+@media only screen and (max-width: 860px) {
+
+  /* Force table to not be like tables anymore */
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  table {
+    display: flex;
+    flex-direction: column;
+  }
+  tr {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .form__group {
+    width: 47%;
+  }
+
+  .form__row {
+    flex-wrap: wrap;
+  }
+
+  .form__action-item {
+    float: none;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  .page__title {
+    text-align: center;
+  }
 }

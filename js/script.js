@@ -17,15 +17,15 @@ form.addEventListener('submit', (e) => {
 
 function createTableHead () {
     let tableObject = generateObject();
-    let parentElem = document.createElement('thead');
+    let tHead = document.createElement('thead');
     let row = document.createElement('tr');
         for (let i = 0; i < tableObject.columns; i++) {
-            let childElem = document.createElement('th');
-            childElem.textContent = 'head';
-            row.append(childElem);
+            let th = document.createElement('th');
+            th.textContent = 'head';
+            row.append(th);
         }
-    parentElem.append(row);
-    return parentElem
+    tHead.append(row);
+    return tHead
 }
 
 function createTableBody () {
@@ -42,6 +42,7 @@ function createTableBody () {
         tbody.append(tr);
     }
 
+    // Making odd cells colorful
     for(let i = 1; i < tbody.childNodes.length; i+=2) {
         tbody.childNodes[i].style.backgroundColor = `${tableObject.tableBg}`;
     }
@@ -148,10 +149,12 @@ function clearInputContent () {
 
 }
 
-
-let getBtn = document.querySelector('.get__btn');
-getBtn.addEventListener('click', () => {
-    let html = document.documentElement.outerHTML;
+function showHtml () {
     let htmlContainer = document.querySelector('.page__html');
+    htmlContainer.innerHTML = '';
+    let html = document.documentElement.outerHTML;
+    htmlContainer.style.border = '2px solid #fff';
     htmlContainer.textContent = html;
-});
+}
+let getBtn = document.querySelector('.get__btn');
+getBtn.addEventListener('click', showHtml);

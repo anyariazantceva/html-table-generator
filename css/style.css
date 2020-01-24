@@ -42,8 +42,6 @@ body {
   font-size: 1.4rem; }
 
 .container {
-  width: 98rem;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -57,7 +55,14 @@ body {
 .page__table {
   width: 100%;
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  margin-top: 2rem; }
+
+.page__html {
+  width: 70%;
+  padding: 1rem;
+  margin: 2rem 0;
+  text-align: justify; }
 
 .btn {
   display: inline-block;
@@ -66,10 +71,36 @@ body {
   background-color: #4bd436;
   border: none;
   font-family: inherit;
-  color: #f7f7f7; }
+  color: #f7f7f7;
+  font-weight: bold; }
 
 table td {
   text-align: center; }
 
 input[type*="color"] {
-  padding: 1px; }
+  padding: 0;
+  border: none; }
+
+.get__code-action {
+  padding: 0 1rem; }
+
+@media only screen and (max-width: 860px) {
+  /* Force table to not be like tables anymore */
+  table, thead, tbody, th, td, tr {
+    display: block; }
+  table {
+    display: flex;
+    flex-direction: column; }
+  tr {
+    display: flex;
+    justify-content: space-between; }
+  .form__group {
+    width: 47%; }
+  .form__row {
+    flex-wrap: wrap; }
+  .form__action-item {
+    float: none; } }
+
+@media only screen and (max-width: 340px) {
+  .page__title {
+    text-align: center; } }
